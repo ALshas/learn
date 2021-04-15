@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 练习1
+    // 求两个数字的 乘积
+
+    // function cross( num1, num2 ) {
+    //     return num1 * num2;
+    // }
+
+    // 参数有两个, 分别是 num1 与 num2
+    // 函数体只有一句话: return num1 * num2;
+
+    // var newCross = new Function( 'num1', 'num2', 'return num1 * num2;' );
+
+    // for ( var i = 1; i < 10; i++ ) {
+    //     console.log( i + ' * 9 = ' + newCross( i, 9 ) );
+    // }
+
+
+    // 使用任意个数字
+    function sum() {
+        var args = arguments;
+        var sum = 0;
+        for ( var i = 0; i < args.length; i++ ) {
+            sum += args[ i ];
+        }
+        return sum;
+    }
+    // 函数没有参数, 在书写 Function 的时候它就只有一个参数, 表示 函数体
+
+
+    // 1> 最简单的字符串拼接
+    // var sum1 = new Function( ' var args = arguments; var sum = 0; .... .... ' );
+
+    // 2> 带有格式的字符串拼接
+    var sum2 = new Function ( 
+        'var args = arguments;' +
+        'var sum = 0;' +
+        'for ( var i = 0; i < args.length; i++ ) {' +
+        '    sum += args[ i ];' +
+        '}' +
+        'return sum;'
+    );
+
+    // 3> 使用 ajax 等技术请求得到 代码
+
+    // 4> 使用模板字符串( ES6 给出的新语法, 使用标准键盘数字键左边的 ` )
+
+    // var str1 = '1
+    // 23';
+
+    // var str2 = `12
+    // 3`;
+
+</script>
+</html>

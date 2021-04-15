@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    var o1 = { 
+        name: '张三'
+    };
+    var o2 = {
+        sayHello: function () {
+            console.log( this.name );
+        }
+    }
+
+    // 混入
+    o2.name = o1.name;
+    // 此时就说 o2 继承自 o1
+
+    o2.sayHello();
+*/
+
+
+    var o1 = { 
+        name: '张三',
+        age: 19,
+        gender: '男',
+        phone: '12345678909',
+        qq: '123245678',
+        address: '北京传智播客'
+    };
+    var o2 = {
+        sayHello: function () {
+            console.log( this.name );
+        }
+    }
+    // 将 o1  混入到 o2 中
+    // o2.name = o1.name;
+    // ...
+    // ...
+    for ( var k in o1 ) {
+
+        o2[ k ] = o1[ k ];
+
+    }
+
+
+    o2.sayHello();
+</script>
+</html>

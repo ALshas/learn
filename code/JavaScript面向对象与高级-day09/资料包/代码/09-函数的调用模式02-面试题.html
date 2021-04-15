@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    var length = 10;
+
+    function fn() {
+        console.log( this.length );
+    }
+
+    var o = {
+        length: 5,
+        method: function ( f ) {
+            f();                        // 10
+            arguments[ 0 ]();           // 2
+        }
+    };
+
+    o.method( fn, 1 );
+
+</script>
+
+</html>

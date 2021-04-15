@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+
+    // 创建一个 Person 类型的对象, 它有 name, age, 和 gender 属性, 还有一个说话的方法 sayHello
+    class Person {
+
+        // 固定的写法
+        // constructor 这个单词是 构造器 的 意思
+        // 在 写代码的时候 使用 var p = new Person()
+        constructor ( name, age, gender ) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+
+        sayHello () {
+            // 打印一句话, 自我介绍
+            console.log( '你好, 我是 ' + this.name + ', 我今年 ' + this.age + ' 岁了, 我是 ' + this.gender + '.' );
+        }
+    }
+    // 此时还是在定义类, 这个类中定义了 一个 Person 的类型, 同时具有一个 sayHello 的 方法
+    // 还有 name, age 与 gender 属性
+
+
+
+    var p = new Person( 'jim', 19, '男' );
+
+</script>
+</html>

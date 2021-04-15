@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 词法作用域不受代码块的影响
+    // {
+    //     var num = 123;
+    // }
+    // console.log( num );
+
+
+
+
+    // 在 js 中, 所有的变量作用域由函数来定义
+    // function foo () {
+    //     var str = '只有函数限定作用域';
+    // }
+
+    // foo();
+
+    // console.log( str );
+
+
+    // if 结构的 花括号 不 限定 变量 num 的定义. 因此不会报未定义的错误
+    // 但是 if 结构为假, 因此赋值运算不进行. 那么变量中就没有数据. 
+    // 所以打印 undefined
+    if ( 0 ) {
+        var num = 123;
+    }
+    console.log( num );
+
+
+    while ( 0 ) {
+        var str = "我是一个数据";
+    } 
+    console.log( str );
+</script>
+</html>

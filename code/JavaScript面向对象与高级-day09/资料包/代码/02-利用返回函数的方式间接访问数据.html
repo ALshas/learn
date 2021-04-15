@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function foo () {
+        var num = Math.random();
+        function tmpFn () {
+            return num;
+        }
+        return tmpFn;
+    }
+
+    var fn = foo();
+
+    // foo 还是只允许调用一次
+    // fn 就是 foo 内部的 tmpFn 函数
+    // tmpFn 可以使用作用域链规则访问到 foo 中定义的变量
+    // 因此 fn 可以访问 foo 中定义的变量
+
+    console.log( fn() );
+    console.log( fn() );
+    console.log( fn() );
+    console.log( fn() );
+    console.log( fn() );
+    console.log( fn() );
+
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person () {
+        this.name = 'jim';
+        this.sayHello = function () {
+            console.log( this.name );
+        }
+    }
+
+    Person.sayGood = function () {
+        // 在方法中 this 表示的是当前对象
+        // this.name?
+        // 即函数名
+        // console.log( this == Person );
+        console.log( this.name );
+    }
+
+    Person.sayGood();
+
+    // 如果需要在静态方法中使用实例成员
+    // 1> 将实例对象传入方法中使用
+    Person.method1 = function ( obj ) {
+        console.log( obj.name );
+    }
+    var obj1 = new Person();
+    Person.method1( obj1 );
+    
+    // 2> 在静态方法中创建实例对象, 然后使用
+    Person.method2 = function () {
+        var o = new Person();
+        console.log( o.name );
+    }
+    Person.method2();c
+
+</script>
+</html>

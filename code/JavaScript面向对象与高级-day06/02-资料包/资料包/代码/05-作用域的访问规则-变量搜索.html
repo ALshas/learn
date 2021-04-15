@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var num = 123;   // 0 级
+
+    function foo() {
+
+        // var num = 456;  // 1 级
+
+        function func() {
+
+            // var num = 789; // 2 级
+
+            console.log( num );  // 首先在当前作用域中查找
+                                 // 如果没有 在 1 级作用域中查找
+                                 // 如果在父级中没有, 再到 0 级中查找
+                                 // 如果在 0 级中还没有, 那么就会报错
+        }
+
+        func();
+
+    }
+
+    foo();
+</script>
+</html>

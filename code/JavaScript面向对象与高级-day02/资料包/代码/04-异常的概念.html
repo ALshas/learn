@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    console.log( 123 )
+
+
+    try {
+        // var o = { ; }; // 此时不是异常, 而是语法错误, 在预解析的时候就出现了
+        var o = { };
+        o.func();   
+    } catch ( e ) {
+        console.log( e );
+    } 
+</script>
+</html>

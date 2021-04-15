@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Foo () {}
+    // 此时已经有了 函数 Foo, 那么就有一个神秘对象存在.
+    // 这个对象我们现在没有办法直接去访问, 只能通过 函数的 prototype 属性去访问
+    // 即 Foo.prototype
+    // 该神秘对象中除了 constructor 就没有其他东西了
+    
+    // this.name = 'jim'
+    Foo.prototype.name = 'jim';
+
+
+    var p = new Foo();
+
+    // 此时 p 就连接到了 这个神秘对象中
+    // p 中是什么都没有的, 也就是说 不可能调用得到 constructor 属性 
+    // 由于 p 连接到了 神秘对象, 而 神秘对象中有 constructor 属性, 因此
+    // p 也可以访问到 constructor 属性
+
+    // console.log( p.constructor === Foo );
+
+
+    console.log( p.name );
+
+    var p1 = new Foo();
+    console.log( p1.name );
+
+
+</script>
+</html>

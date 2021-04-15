@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var foo = function func () {
+
+        console.log( func === foo );
+
+        var o = {};
+
+        o.func();
+    };
+
+
+    // func();  // func 不是函数, func 没有定义. 除了 IE8
+    foo();
+</script>
+</html>

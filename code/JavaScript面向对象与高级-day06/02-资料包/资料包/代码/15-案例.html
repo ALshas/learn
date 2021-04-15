@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    // 在 js 中是单线程的程序, 就是说一次只能执行一个函数
+    // setInterval, setTimeout
+    // 对于使用了 setInterval 和 setTimeout 的函数实际上会被存储到一个数组中( 队列 )
+    // 在我们代码中定义的所有函数执行结束以后, 才会在这个数组中从前往后依次取出函数来执行.
+
+
+
+    var arr = "a,b,c,d,e,f,g".split( ',' );
+
+    for ( var i = 0; i< arr.length; i++ ) {
+
+        var f = (function ( i ) {
+            return function () {
+                console.log( arr[ i ] );
+            };
+        })( i );
+
+        setTimeout( f, 0 );
+
+    }
+
+    console.log( 'over' );
+    // 最后调用 f 函数
+</script>
+</html>

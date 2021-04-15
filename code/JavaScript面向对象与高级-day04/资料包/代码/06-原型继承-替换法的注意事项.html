@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 1
+    /*
+    function Person () {
+
+    }
+
+    Person.prototype.sayHello = function () {
+        console.log( '原始原型的 sayHello' );
+    }
+
+
+    Person.prototype = {
+        sayHello: function () {
+            console.log( '替换对象的 sayHello' );
+        }
+    }
+
+    var p = new Person();
+    p.sayHello();
+    */
+
+    // 2
+    function Person () {}
+
+    var p1 = new Person();
+
+    Person.prototype.sayHello = function () {
+        console.log( '原始原型的 sayHello' );
+    }
+
+    var p2 = new Person();
+
+    Person.prototype = {
+        sayHello: function () {
+            console.log( '替换对象的 sayHello' );
+        }
+    }
+
+    var p3 = new Person();
+    
+    
+    p1.sayHello();
+    p2.sayHello();
+    p3.sayHello();
+
+    
+</script>
+</html>

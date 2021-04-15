@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    // var dv = document.getElementsByTagName( 'div' )[ 0 ];
+    // dv.style.border = '1px dashed red';
+    // dv.style.width = '100px';
+    // dv.style.height = '50px';
+
+
+    // apply, call
+    // var get = document.getElementsByTagName;
+    // var dv = get.call( document, 'div' )[ 0 ];
+
+    // dv.style.border = '1px dashed blue';
+    // dv.style.width = '100px';
+    // dv.style.height = '50px';
+
+    var tmpFn = document.getElementsByTagName;
+    var get = tmpFn.bind( document ); // 返回的还是函数
+
+    var dv = get( 'div' )[ 0 ];   
+    // 已经隐含了一个条件, 就是说 get 函数中的 this 就是被绑定的对象 即 document
+
+    dv.style.border = '1px dashed green';
+    dv.style.width = '100px';
+    dv.style.height = '50px';
+
+</script>
+</html>

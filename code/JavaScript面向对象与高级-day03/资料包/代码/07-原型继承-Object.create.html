@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var o = {
+        sayHello: function () {
+            console.log( '我是一个带有 sayHello 方法的对象' );
+        }
+    }
+
+    var newObj = Object.create( o );
+
+    // 返回的对象 newObj 的 原型对象 就是 o, 即 newObj 继承自 o
+    newObj.sayHello();
+
+    // 早在 ES3 的标准中是没有的.
+    // 最早是道格拉斯( JavaScript 语言精粹 )提出的办法来实现继承
+    if ( !Object.create ) {
+
+        Object.create = function ( obj ) {
+            function F() {}
+            F.prototype = obj;
+            return new F();
+        }
+
+    }
+    // 在 ES5 中该方法被标准化
+</script>
+</html>

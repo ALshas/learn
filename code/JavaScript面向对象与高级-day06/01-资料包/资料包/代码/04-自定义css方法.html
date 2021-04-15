@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv"></div>
+</body>
+<script>
+    function css () {
+        var args = arguments;
+        // 第 0 个元素是 DOM
+        // 第 1 个元素是 对应的样式
+        // 第 2 个元素是 需要设置的样式值
+        if ( args.length == 3 ) {
+            // 设置
+            args[ 0 ].style[ args[ 1 ] ] = args[ 2 ]; 
+        } else {
+            // 获取
+
+            return args[ 0 ].style[ args[ 1 ] ];
+
+        }
+    }
+
+
+    var div = document.getElementById( 'dv' );
+
+    css( div, 'border', '1px solid red' );
+    css( div, 'width', '200px');
+    css( div, 'height', '100px');
+
+
+
+    console.log( css( div, 'width' ) );
+</script>
+</html>

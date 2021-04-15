@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .notice-container {
+        margin-top: 10px;
+        background: #ffffff;
+        font-size: 12px;
+        color: #3e4759;
+        height: 30px;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .notice-icon {
+        display: block;
+        margin-left: 10px;
+        flex-shrink: 0;
+        width: 27px;
+        height: 27px;
+        background: url("../assets/home/icon_home_gg.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
+      .notice-items {
+        margin: 0 0 0 6px;
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+      }
+      .notice-items-inner {
+        display: flex;
+        width: 100%;
+      }
+      p {
+        flex-shrink: 0;
+        margin-right: 100%;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <script>
+        initHorseLamp () {
+        let boxWidth = this.$refs.noticeBox.offsetWidth
+        let innerWidth = 0
+        let child = this.$refs.noticeInner.childNodes
+        let count = 0
+        child.forEach(item => {
+          if (item.nodeType === 1) {
+            innerWidth += parseInt(window.getComputedStyle(item).width.split('px')[0])
+            count++
+          }
+        })
+        innerWidth += boxWidth * (count - 1)
+        if (innerWidth > boxWidth) {
+          let padding = 0
+          let animation = () => {
+            padding -= 1
+            this.$refs.noticeInner.style.cssText = `transform: translate3d(${padding}px, 0, 0)`
+            if (padding === -(innerWidth - parseInt(window.getComputedStyle(child[child.length - 1]).width.split('px')[0]))) {
+              padding = 0
+              this.$refs.noticeInner.style.cssText = `transform: translate3d(${padding}px, 0, 0)`
+            }
+            this.animationId = requestAnimationFrame(animation)
+          }
+          animation()
+        }
+    }
+  </script>
+
+  <body>
+    <div class="notice-container">
+      <span class="notice-icon"></span>
+      <div class="notice-items" ref="noticeBox">
+        <div class="notice-items-inner" ref="noticeInner">
+          <p>1、这是第一条跑马灯！！！！！！！！！</p>
+          <p>2、这是第二条跑马灯！！！</p>
+          <p>3、这是第三条跑马灯！！！</p>
+          <p>1、这是第一条跑马灯！！！！！！！！！</p>
+          <!-- 这里是复制第一条数据，以做到无缝衔接 -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

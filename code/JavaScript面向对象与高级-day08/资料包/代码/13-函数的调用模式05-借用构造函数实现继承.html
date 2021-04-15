@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person( name, age, gender ) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    // Person 是一个构造函数, 但是他也是一个普通函数
+    // 只有在 使用 new 来引导的时候 Person 才是构造函数
+    // 而 this 就是刚刚创建出来的对象.
+
+    // 有了上下文调用以后, 可以给任意的对象增加 name 属性
+    // var o = {};
+    // Person.call( o, 'tom' );
+
+
+    // 利用该模式可以实现继承
+    // 我们希望提供一个构造函数 Student
+    // 该构造函数的实例继承自 Person 构造函数
+    function Student( name, age, gender, chinese, math, english ) {
+        Person.call( this, name, age, gender ); // 借用构造函数初始化 name, age 和 gender
+
+        this.chinese = chinese;
+        this.math = math;
+        this.english = english;
+
+    }
+
+    Student.prototype.sayHello = function () {
+        console.log( '你好, 我是 ' + this.name );
+    };
+
+
+    var s = new Student( '张三', 12, '男', 90, 85, 95 );
+
+    s.sayHello();
+
+</script>
+</html>

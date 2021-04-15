@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* {   // 这个花括号就是 一个 语句块
+        // 在 ES6 中引入了 let 关键字, 使用 let 与 var 一样可以声明变量. 但是 let 变量具有块级作用域
+        // console.log( num );
+        let num = 123; console.log( num );
+        console.log( num );
+        num = 456;
+        console.log( num );
+        // num 从定义开始, 即该代码中 第 14 行开始可以被使用, 到 第 19 行 的 右花括号左边 可以使用, 超出以后就不能再被使用了
+    console.log( num ); } console.log( 'num = ' + num );   
+    */
+    
+    /*
+    {
+        let num = '一个数字';
+        {
+            let str = '子块可以访问父块';
+            console.log( num ); // 子块访问父块
+        }
+        console.log( str );
+    }
+    */
+
+    /*
+    {
+        let num = 123;
+        {   // 在此处, 父块的变量就会被隐藏起来, 那么在这里先打印 就会抱一个错误, 就是未定义
+            // console.log( num );
+            let num = 456;
+            console.log( num );
+            num = 789;
+            console.log( num );
+        }
+        // 由于是隐藏这个变量, 因此出来以后就可以使用原来的变量了
+        console.log( num );
+    }
+    */
+
+    {
+        let num = 123;
+        {   
+            let num; // 有没有 let 是不一样的
+            console.log( '子块中: num = ' + num );
+            num = 456;
+            console.log( '子块中: num = ' + num );
+            num = 789;
+            console.log( '子块中: num = ' + num );
+        }
+        console.log( '父块中: num = ' + num );
+    }
+
+</script>
+</html>

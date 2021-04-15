@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    function foo1() {
+        foo2()
+        console.log( 'foo1' );
+    }
+    function foo2() {
+        try{
+            foo3()
+            // try 尽可能少包含代码
+        } catch ( e ) {}
+        console.log( 'foo2' );
+    }
+    function foo3() {
+        var o = {};
+        o.func();
+        console.log( 'foo3' );
+    }
+    foo1();
+</script>
+</html>

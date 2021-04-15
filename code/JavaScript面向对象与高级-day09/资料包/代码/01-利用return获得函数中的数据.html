@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    function foo () {
+        var num = 123;
+        return num;
+    } 
+
+    var res = foo();
+    // 函数执行
+    // 首先会分配内存( 盘子, 碗 ). 该内存叫做 num, 里面存储的是数字 123 ( 番茄, 鸡蛋 )
+    // 然后执行内部的逻辑, 返回 数据, 即将 123 的值返回.
+    // 这些碗和盘子怎么办?
+
+
+
+    console.log( res );
+
+    console.log( foo() );  // 在调用函数以后, 内部的数据会重新再创建一次
+                           // 由于在书写函数的时候, 123 属于硬编码, 因此每次调用
+                           // foo 的时候得到的都是数字 123. 但是并不是同一个 123 
+*/
+
+    function foo () {
+        var num = Math.random();
+        return num;
+    } 
+
+    console.log( foo() );
+    console.log( foo() );
+    console.log( foo() );
+    console.log( foo() );
+
+
+
+    // function foo () {
+    //     var num = Math.random();
+    //     return num;
+    // } 
+    // var res = foo();
+
+    // console.log( res );
+    // console.log( res );
+    // console.log( res );
+    // console.log( res );
+</script>
+</html>

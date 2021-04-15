@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    // 1, 预解析
+    //      在全局范围内保留变量 num 和 函数 func
+    //          函数的声明有两部分
+    //          1> 定义了一个与函数名同名的变量, 即 func
+    //          2> 函数体与 func 连接到一起
+    // 2, 执行代码
+    //      赋值 给 num 赋值为 123
+    //      函数调用, 调用的时候传入 num 中存储的数据( 将数据 123 拷贝一份传入函数中 )
+    // 3, 进入函数
+    //      在进入函数的时候, 在执行代码之前有一个预解析
+    //      此时在预解析之前已有 value 变量, 并且其中的值为 123
+    //      预解析, 检查到 有函数声明, 并且名字为 value
+    //          1> 声明一个与函数名同名的变量( 重复声明 )
+    //          2> 将函数体与变量名连接起来. 将原有的数值覆盖.
+    //      执行代码
+    //          调用函数
+
+
+    // var num = 123;
+
+    // function func( value ) {
+
+    //     value();
+
+    //     function value () {
+
+    //         console.log( 'value 函数' );
+    //     }
+    // }
+
+    // func( num );
+
+
+
+
+    var num = 123;
+
+    function func( value ) {
+
+        value = 456;
+
+        value();
+
+        function value () {
+
+            console.log( 'value 函数' );
+        }
+    }
+
+    func( num );
+
+</script>
+</html>

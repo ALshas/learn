@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person () {} // 就会自动的新增一个原始的原型对象, 在原始的原型对象中含有
+                            // constructor 属性.
+    Person.prototype = {  // 直接替换原型对象, 来实现继承
+        sayHello: function () { 
+
+            console.log( '我说话了' );
+        }
+    }
+
+    var p = new Person(); // 此时 p 就是自 新的 带有 sayHello 方法的对象
+
+
+    p.sayHello();
+</script>
+</html>

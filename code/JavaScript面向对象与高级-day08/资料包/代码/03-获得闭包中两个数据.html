@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function foo () {
+    //     var num1 = Math.random();
+    //     var num2 = Math.random();
+
+    //     return [
+    //         function () {
+    //             return num1;
+    //         },
+    //         function () {
+    //             return num2;
+    //         }
+    //     ]
+    // }
+
+    // var arr = foo();
+
+    // console.log( 'num1 = ' + arr[ 0 ]() + ', num2 = ' + arr[ 1 ]() );
+    // console.log( 'num1 = ' + arr[ 0 ]() + ', num2 = ' + arr[ 1 ]() );
+    // console.log( 'num1 = ' + arr[ 0 ]() + ', num2 = ' + arr[ 1 ]() );
+    // console.log( 'num1 = ' + arr[ 0 ]() + ', num2 = ' + arr[ 1 ]() );
+
+
+
+
+
+
+
+    function foo () {
+        var num1 = Math.random();
+        var num2 = Math.random();
+
+        return {
+            num1: function () {
+                return num1;
+            },
+            num2: function () {
+                return num2;
+            }
+        }
+    }
+
+    var o = foo();
+
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+    console.log( 'num1 = ' + o.num1() + ', num2 = ' + o.num2() );
+
+
+</script>
+</html>

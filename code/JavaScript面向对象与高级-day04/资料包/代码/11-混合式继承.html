@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function extend ( obj1, obj2 ) {
+        for ( var k in obj2 ) {
+            obj1[ k ] = obj2[ k ];
+        }
+    }
+
+    function Person ( options ) {
+        // this.xxx = oprion.xxx
+        extend( this, options );
+    }
+    Person.fn = Person.prototype;
+
+    Person.fn.extend = function ( obj ) {
+        // 将 obj 中的成员加到 Person.prototype 中
+        // 在 该方法中 this 就是 Person.prototype
+        extend( this, obj );
+    }
+
+    // 扩展
+    Person.fn.extend({
+        sayHello: function () {
+            console.log( '你好, 我是 ' + ( this.name || '无名' ) );
+        } 
+    });
+
+
+
+    var p1 = new Person( {
+        name: '张三'
+    } );
+    var p2 = new Person();
+
+
+    p1.sayHello();
+
+    p2.sayHello();
+
+</script>
+</html>

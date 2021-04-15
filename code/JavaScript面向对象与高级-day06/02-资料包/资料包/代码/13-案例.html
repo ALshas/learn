@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    // 分析
+    // 1, 代码运行需要预解析, 首先观察有两个声明, 一个是变量 num, 另一个是函数 num 声明
+    //      从上往下预解析, 看到 变量 num 记录下来. 在全局环境中有一个变量叫 num 
+    //      继续往下走看到 函数 num 
+    //          1> 声明一个以函数名同名的变量, 但是该变量已存在, 因此这里是重复声明
+    //          2> 将函数体与该变量关联. 所谓的关联就是指变量可以调用函数体
+    // 2, 开始执行代码. 首先执行的是 赋值语句. 给 num 赋值为 123. 此时将函数覆盖.
+    // 3, 直接进行调用, 报错
+
+
+    var num = 123;
+
+    function num () {
+        console.log( 456 );
+    }
+
+    num();
+
+
+
+    // 题目: 分析代码
+    function num () {
+        console.log( 456 );
+    }
+    var num = 123;
+    
+    num();
+
+</script>
+</html>

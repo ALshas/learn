@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    function Person( name, age, gender ) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sayHello = function () {
+            console.log( '你好, 我是 ' + this.name );
+        };
+    }
+
+    var p1 = new Person( 'jim', 19, '男' );
+    var p2 = new Person( 'jim', 19, '男' );
+
+
+    console.log( p1.sayHello == p2.sayHello );
+*/
+
+
+    function sayHello () {
+        console.log( '你好, 我是 ' + this.name );
+    }
+
+    function Person( name, age, gender, say ) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sayHello = say;
+    }
+
+    var p1 = new Person( 'jim1', 19, '男', sayHello );
+    var p2 = new Person( 'jim2', 19, '男', sayHello );
+
+    p1.sayHello();
+    p2.sayHello();
+
+    console.log( p1.sayHello == p2.sayHello );
+
+</script>
+</html>

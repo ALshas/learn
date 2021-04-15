@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div style="border: 1px dashed red; width: 300px; height: 200px;" id="dv"></div>
+</body>
+<script>
+    function NumberInput() {
+        this.DOM = document.createElement( 'input' );
+
+        this.DOM.onkeydown = function ( e ) {
+            if ( e.keyCode < 48 || e.keyCode > 58 ) {
+                console.log( e );
+                return false;
+            }
+        };
+
+        this.appendTo = function ( dom ) {
+            dom.appendChild( this.DOM );
+        };
+    }
+
+
+    new NumberInput().appendTo( document.body );
+
+    new NumberInput()
+        .appendTo( document.getElementById( 'dv' ) );
+    new NumberInput()
+        .appendTo( document.getElementById( 'dv' ) );
+    new NumberInput()
+        .appendTo( document.getElementById( 'dv' ) );
+    new NumberInput()
+        .appendTo( document.getElementById( 'dv' ) );
+    sssnew NumberInput()
+        .appendTo( document.getElementById( 'dv' ) );
+
+</script>
+</html>

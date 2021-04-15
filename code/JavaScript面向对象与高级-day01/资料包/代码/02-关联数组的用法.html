@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="key"><br/>
+    <input type="text" id="value"><br />
+    <input type="button" id="btn">
+</body>
+<script>
+    function id ( idName ) {
+        return document.getElementById( idName );
+    } 
+    var key = id( 'key' );
+    var value = id( 'value' );
+    var btn = id( 'btn' );
+
+    var o = {};
+
+    btn.onclick = function () {
+        // 给全局对象 o 添加成员
+        o[ key.value ] = value.value;
+    }   
+
+</script>
+</html>

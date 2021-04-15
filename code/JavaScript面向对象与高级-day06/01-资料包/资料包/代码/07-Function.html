@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var foo = new Function( 'console.log( "Hello" )' );
+
+    /*
+    function foo( a, b ) {
+        console.log( 'a + b = ' + ( a + b ) );
+    }
+    */
+
+    var foo = new Function( 'a', 'b', 'console.log( "结果: a + b = " + ( a + b ) );' )
+
+
+    foo( 1, 2 );
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>div</div>
+    <span>span</span>
+    <p>p</p>
+    <div>div</div>
+    <div>div</div>
+    <span>span</span>
+    <p>p</p>
+    <div>div</div>
+    <div>div</div>
+    <span>span</span>
+    <p>p</p>
+    <div>div</div>
+</body>
+<script>
+    // 需求, 将页面中所有的 div 标签与 p 标签增加边框
+    
+    // var $ = function ( selector ) {
+    //     return document.querySelectorAll( selector ); 
+    // };
+
+    var $ = (function () {
+
+        var cache = {};
+    
+        return function ( selector ) {
+            // 首先判断缓存中有没有, 有的就直接使用缓存中的, 如果没有就再来获取
+            var nodeList;
+            if ( cache[ selector ] ) {
+                // 有
+                nodeList = cache[ selector ];
+            } else {
+                // 没有
+                nodeList = document.querySelectorAll( selector ); 
+                cache[ selector ] = nodeList; // 在 缓存中存起来
+            }
+            return nodeList;
+        };
+    })();
+
+
+
+
+    var list = $( 'div, p' );
+
+    for ( var i= 0; i < list.length; i++ ) {
+        list[ i ].style.border = '1px solid red';
+    }
+
+    var list1 = $( 'div, p' );
+</script>
+</html>

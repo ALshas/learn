@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    var name = "全局的 name";
+
+    function method() {
+        console.log( this.name );
+    }
+
+
+    var o1 = { name: 'zhangsan' };
+    var o2 = { name: '李四' };
+
+    // method(); // 函数, this -> window
+
+    // 上下文调用只需要使用函数的 apply 方法来引导调用, 并提供一个参数来指定 this 的含义
+    method.apply( o1 ); // 将 o1 传入, 因此就是指定函数 method 中的 this 就是 o1 表示对象
+
+
+    method.apply( o2 );
+
+    // call 与 apply 是一样的, 唯独从 第二个参数开始不同
+    // 但是只是调用的形式不同, 本质是一样的
+    method.call( {
+        name: 'itcast'
+    } );
+ */
+
+
+
+
+    function method( message, a,b,c,d,e,f,g ) {
+        console.log( arguments );
+        console.log( message + ', ' + this.name );
+    }
+
+    var o1 = { name: '张三' };
+
+    // method.apply( o1, [ '消息', 1,2,3,4,5,6,7,8,9,0 ] );
+
+    method.call( o1, '消息', 1, 2, 3, 4, 5, 6, 7 );
+
+</script>
+</html>

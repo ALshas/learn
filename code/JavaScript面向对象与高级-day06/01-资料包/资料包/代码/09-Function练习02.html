@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script id="code">
+/*
+
+        var args = arguments,
+            sum = 0;
+        for ( var i = 0; i < args.length; i++ ) {
+            sum += args[ i ];
+        }
+        return sum;
+
+
+*/
+</script>
+<script>
+    // 正常函数
+    function sumAll( ) {
+        var args = arguments,
+            sum = 0;
+        for ( var i = 0; i < args.length; i++ ) {
+            sum += args[ i ];
+        }
+        return sum;
+    }
+    // console.log( sumAll( 1, 2, 3, 4 ) );
+    
+    // 改写
+    // var sumAllFn = new Function( '方法体' );
+
+    // 处理多行代码的字符串解决方案
+    // 1, 使用 ES6 中的可换行字符串 ``
+
+//     alert( `a
+// b` )
+
+    var sumAllFn1 = new Function( `
+        var args = arguments,
+            sum = 0;
+        for ( var i = 0; i < args.length; i++ ) {
+            sum += args[ i ];
+        }
+        return sum;` 
+    );
+
+
+    // console.log( sumAllFn1( 11, 33, 55 ) )
+    
+
+    // 2, 使用字符串拼接
+    // var sumAllFn = new Function( 'var args = arguments,sum = 0;for ( var i = 0; i < args.length; i++ ) {sum += args[ i ];}return sum;' );
+
+    var sumAllFn2 = new Function(
+        'var args = arguments,'+
+        '    sum = 0;'+
+        'for ( var i = 0; i < args.length; i++ ) {'+
+        '    sum += args[ i ];'+
+        '}'+
+        'return sum;'
+    );
+
+    
+    // console.log( sumAllFn2( 11, 33, 66 ) )
+
+
+    // 3, 使用字符串操作和 DOM 操作结合
+    var code = document.getElementById( 'code' );
+    codeStr = code.innerHTML.replace( '/*', '' ).replace( '*/', '' );
+    var sumAllFn3 = new Function( codeStr );
+    code.parentNode.removeChild( code );
+
+    console.log( '求和: ' + sumAllFn3( 1, 2, 3 ) );
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    console.log( 'start' );
+    try {
+        var num = { ; } // 语法的错误在预解析的时候就发生了
+    } catch ( e ) {
+
+    }
+    console.log( 'hello' );
+*/
+
+    // 检查所有的声明
+/*
+    console.log( 'start' );
+    console.log( num );
+    var num = 123;
+    console.log( num );
+
+    // 如果含有 var 就表示这个 num 是一个声明. 声明与赋值是分开的
+    // 凡是声明的内容在预解析的时候就已经被运行环境记录下来了. 那么自然在一开始的时候使用就不会报错
+    // 但是只是记录下来有这个名字, 可以使用, 但是里面的数据是什么, 还不清楚. 因此打印 undefined.
+    // 而后打是在在赋值语句之后. 自然就有结果.
+
+    // 但是如果没有 var 那么在预解析的时候就不会将 num 当做一个变量. 只是在简单的检查是否有语法错误.
+    // 从上往下执行, 遇到 num 的时候发现还没有定义. 因此报错.
+*/
+
+
+
+    // 记录函数声明
+    foo();
+
+    function foo() {
+        console.log( 'hello javascript ' );
+    }
+    
+</script>
+</html>

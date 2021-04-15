@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<script src="..."></script>
+    <script>
+        $( function () {
+
+            $( 'body' )...
+
+        } )
+    </script>-->
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 全局作用域, 0 级作用域
+
+    function foo() {
+        // 子级作用域, 1 级作用域
+    }
+
+    // 0 级作用域
+
+    function func() {
+        // 子级作用域, 1 级作用域
+
+        function func1() {
+            // 2 级作用域
+
+        }   
+
+
+        function func2() {
+            // 2 级作用域
+
+            function func3() {
+                // 3 级作用域
+            }
+        }
+
+
+
+    }
+
+    // 0 级作用域
+
+</script>
+</html>

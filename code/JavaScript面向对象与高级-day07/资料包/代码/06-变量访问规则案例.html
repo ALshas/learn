@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    var num = 123;
+
+    function foo () {
+
+        console.log( num );  // 查找
+    }
+
+    function func () {
+
+        var num = 456;
+
+        foo();  // 调用函数, 就是在访问函数名, 依旧需要查找
+
+    }
+
+
+    func();
+
+
+</script>
+</html>

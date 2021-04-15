@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    Function.prototype.before = function (beforeFn) {
+        return (...args) => {
+            beforeFn()
+            console.log(111, this)
+            this(...args)
+        }
+    }
+    const say = (...args) => {
+        console.log('说话', args)
+    }
+    const newSay = say.before(() => {
+        console.log('你好')
+    })
+    const newSay1 = say.before(() => {
+        console.log('天气很好，但是我不开心')
+    })
+    newSay(1, 2, 3)
+    newSay1()
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+    function Person( name, age, gender ) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+*/
+
+
+    // 语法糖
+    class Person {
+        constructor( name, age, gender ) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        // 这里的方法默认就加到了原型中
+        sayHello () {
+            console.log( '你好, 我是 ' + this.name );
+        }
+    }
+
+    var p = new Person( '张三', 19, '男' );
+
+</script>
+</html>

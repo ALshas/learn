@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>div</div>
+    <p>p</p>
+    <span>span</span>
+    <b>b</b>
+        <div>div</div>
+    <p>p</p>
+    <span>span</span>
+    <b>b</b>
+        <div>div</div>
+    <p>p</p>
+    <span>span</span>
+    <b>b</b>
+</body>
+<script>
+    var length = 3;
+    var $ = (function () {
+
+        var cacheKeys = [];
+        var cache = {};
+
+        return function ( selector ) {
+            // 首先判断缓存中有没有, 有的就直接使用缓存中的, 如果没有就再来获取
+            var nodeList;
+            if ( cache[ selector ] ) {
+                // 有
+                nodeList = cache[ selector ];
+            } else {
+                // 没有
+                nodeList = [].slice.call( document.querySelectorAll( selector ) ); 
+                // 将 伪数组 NodeList 转换成 真数组 Array, 为了在后面调用 forEach 方法
+
+                // 存储之前需要判断长度
+                if ( cacheKeys.length >= length ) {
+                    // 需要删除
+                    var key = cacheKeys.shift();
+                    delete cache[ key ];
+                }
+
+                cacheKeys.push( selector );
+                cache[ selector ] = nodeList; // 在 缓存中存起来
+            }
+            return nodeList;
+        };
+    })();
+
+    // 1 div
+    // var list1 = $( 'div' );
+    $( 'div' ).forEach( function ( v ) {
+        v.style.border = '1px solid red';
+    });
+
+    // 2 p
+    $( 'p' ).forEach( v => v.style.border = '1px dashed blue' ); // ES6 里的 箭头函数
+
+
+    // 3 span
+    $( 'span' ).forEach( v=> v.style.backgroundColor = 'yellow' ); 
+
+    // 4 b
+    $( 'b' ).forEach( v => v.style.color = 'pink' );
+
+
+</script>
+</html>

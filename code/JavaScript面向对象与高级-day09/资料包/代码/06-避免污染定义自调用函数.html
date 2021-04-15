@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    !function () {
+
+        console.log( 1 );
+        // 所有的代码逻辑写在这里
+        function foo() {
+        }
+        console.log( 2 );
+        function tool () {
+        
+        }   
+        console.log( 3 );
+        // ...
+    
+    
+    } ();
+
+    // 不会影响到全局的变量污染
+    // 代码会与写在外面一样执行
+
+    // 一般将函数放在一个圆括号中使用
+    (function () {
+
+        // 代码
+
+    })();
+    
+</script>
+</html>

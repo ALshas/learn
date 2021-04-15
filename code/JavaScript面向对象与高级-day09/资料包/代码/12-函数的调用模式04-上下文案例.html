@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var arr1 = [ 1, 2, 3 ];
+    // var arr2 = [ 4, 5, 6 ];
+
+    // // 合并 concat 方法
+    // var arr3 = arr1.concat( arr2 ); 
+
+    var warr1 = { length: 0 };   // 伪数组
+    // 增加元素???
+    // 真正的数组使用 push
+    // warr1.push( 1 );
+
+    // 1> 最简单的做法
+    // warr1[ 0 ] = 1;
+    // warr1.length++;
+
+
+    // 2> 结合前面的算法
+    // warr1[ warr1.length++ ] = 1;
+
+
+    // 3> 可以使用数组的方法, 但是假设 this 不是数组, 而是伪数组
+    // [].push.apply( warr1, [ 1 ] );
+    [].push.call( warr1, 1 );
+    [].push.call( warr1, 2 );
+    [].push.call( warr1, 3 );
+
+    var warr2 = { length: 0 };
+    [].push.call( warr2, 3 );
+    [].push.call( warr2, 4 );
+    [].push.call( warr2, 5 );
+
+    // 使用 push 合并
+    [].push.apply( warr1, warr2 );
+
+
+</script>
+</html>

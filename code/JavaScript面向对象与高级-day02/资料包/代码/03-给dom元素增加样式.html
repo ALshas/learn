@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>1234567</div>
+</body>
+<script>
+    function css( dom, styles ) {
+        for ( var k in styles ) {
+            dom.style[ k ] = styles[ k ];
+        }
+    }
+
+    // 样式可以是什么?
+    // function css( dom, border, color, backgroundImage, left, right, ... ) {
+    // }
+
+    // 将参数以键值对的形式封装到 styles 中
+    // 那么调用的时候可以使用语法
+
+
+    var dom = document.querySelectorAll( 'div' )[ 0 ];
+
+    css( dom, {
+        color: 'red',
+        backgroundColor: 'blue',
+        width: '100px',
+        height: '100px'
+    })
+
+
+
+
+</script>
+</html>

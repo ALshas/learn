@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    function Person ( name, age, gender ) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    Person.prototype.sayHello = function () {
+        console.log( '你好, 我是 ' + this.name );
+    }
+
+
+    var p1 = new Person( 'jim', 19, '男' );
+    var p2 = new Person( 'tom', 18, '女' );
+
+    p1.sayHello();
+    p2.sayHello();
+
+    console.log( p1.sayHello == p2.sayHello );
+</script>
+</html>

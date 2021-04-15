@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+    var arr = 'a,b,c,d,e,f,g'.split( ',' );
+
+    // for ( var i = 0; i < arr.length;i++ ) {
+    //     // console.log( arr[ i ] );
+    //     setTimeout( function () {
+    //         console.log( arr[ i ] + ', i = ' + i );
+    //     }, 0);
+    // }
+
+    console.log( 'over' );
+
+    // 在 js 中, js 是一个单线程的程序. 因此只可能是一个函数完成以后才可以继续执行其他函数. 
+    // 而在 setTimeout 方法中, 实际上并不是立即执行函数, 而是将这个函数放到一个数组中( 事件队列 ).
+
+
+    // 要解决这个问题就是在 执行循环的时候, 调用 setTimeout 的时候将 i 值记录下来
+    // for ( var i = 0; i < arr.length;i++ ) {
+    //     // console.log( arr[ i ] );
+    //     setTimeout( (function ( i ) { return function () {
+    //         console.log( arr[ i ] + ', i = ' + i );
+    //     }; })( i ), 0);
+    // }
+
+
+    for ( var i = 0; i < arr.length;i++ ) {
+        // console.log( arr[ i ] );
+        var f = 
+        (function ( i ) {
+            return function () {
+                console.log( arr[ i ] + ', i = ' + i );
+            }; 
+        })( i );
+
+
+        setTimeout( f , 0);
+    }
+
+</script>
+</html>

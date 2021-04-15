@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function clone( obj ) {
+        var o = {};
+        for ( var k in obj ) {
+            o[ k ] = obj[ k ];
+        }
+        return o;
+    }
+/*
+    var o1 = { num: 123 };
+
+    var o2 = clone( o1 );
+
+    console.log( 'o1.num = ' + o1.num );
+    console.log( 'o2.num = ' + o2.num );
+
+    o1.num = 456;
+
+    console.log( 'o1.num = ' + o1.num );
+    console.log( 'o2.num = ' + o2.num );
+*/
+
+
+
+     function deepClone( obj ) {
+        var o = {};
+        for ( var k in obj ) {
+            if ( typeof obj[ k ]  == 'object' ) {
+                o[ k ] = deepClone( obj[ k ] );
+            } else {
+                o[ k ] = obj[ k ];
+            }
+        }
+        return o;
+    }
+
+
+    var p = {
+        name: 'jim',
+        car: {
+            name: '法拉利'
+        }
+    }
+
+    var p1 = deepClone( p );
+
+    console.log( 'p.name = ' + p.name + ', p.car.name = ' + p.car.name );
+    console.log( 'p1.name = ' + p1.name + ', p1.car.name = ' + p1.car.name );
+
+    p1.name = 'jimi';
+    p1.car.name = '兰博基尼';
+
+    console.log( 'p.name = ' + p.name + ', p.car.name = ' + p.car.name );
+    console.log( 'p1.name = ' + p1.name + ', p1.car.name = ' + p1.car.name );
+
+
+</script>
+</html>

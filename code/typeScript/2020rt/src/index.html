@@ -1,0 +1,28 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-16 17:56:31
+ * @LastEditTime: 2020-12-18 10:20:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \code\ts\2020rt\src\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",initial-scale=1.0, maximum-scale=1,user-scable=no/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- 清除默认样式库 -->
+    <link rel="stylesheet" type="text/html" href="http:img.zhufengpeixun.cn/reset.min.css">   
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 动态计算font-size  一个rem是50个像素 ==> 1rem == 50px
+        ;(function () { 
+            document.documentElement.style.fontSize = (document.documentElement.clientWidth) /750* 100 + 'px'
+         })()
+    </script>
+    <div id="root"></div>
+</body>
+</html>

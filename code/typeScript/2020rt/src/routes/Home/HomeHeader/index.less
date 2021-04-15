@@ -1,0 +1,45 @@
+@BG_COLOR: #2a2a2a;
+.home-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 1rem;
+  z-index: 999;
+  .header-logo {
+    height: 1rem;
+    background-color: @BG_COLOR;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 2rem;
+      margin-left: 0.2rem;
+    }
+    .home-but {
+      font-size: 0.5rem;
+      margin-right: 0.2rem;
+    }
+  }
+  .header-category {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 1rem;
+    padding: 0.1rem 0.5rem;
+    background-color: @BG_COLOR;
+    li {
+      line-height: 0.6rem;
+      text-align: center;
+      color: white;
+      font-size: 0.3rem;
+      border-top: solid 0.002rem lighten(@BG_COLOR, 20%);
+      &.active {
+        color: rebeccapurple;
+        font-weight: bold;
+      }
+    }
+  }
+}
