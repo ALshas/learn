@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>A 页面</h1>
+    <button type="button" onclick="openB()">B</button>
+    <script>
+        window.name = 'A'
+        function openB() {
+            window.open("B.html", "B")
+        }
+        window.addEventListener('hashchange', function () {// 监听 hash
+            alert('哈哈哈哈哈哈哈哈哈哈哈哈', window.location.hash)
+        }, false);
+    </script>
+</body>
+
+</html> -->
+
+<!-- --------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <H1>A 页面</H1>
+    <button type="button" onclick="openB()">B</button>
+    <script>
+        window.name = 'A'
+        function openB() {
+            window.open('B.html?code=123', 'B')
+        }
+        window.addEventListener('message', receiveMessagee, false)
+        function receiveMessagee(event) {
+            console.log('收到消息：', event.data)
+        }
+    </script>
+</body>
+
+</html>

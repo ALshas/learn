@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 核心代码
+    function say(a, b, c, d, e) {
+        console.log('我是核心代码~', a, b, c, d, e)
+    }
+
+    //  扩展方法
+    // 当前实例都可以调用所属类原型上的方法
+    Function.prototype.before = function (callback) {
+        // this = say
+        return (...args) => {   //箭头函数的特点，没有this, 没有arguments 没有prototype 不能New
+            callback()
+            this(...args)
+        }
+    }
+
+    let newSay = say.before(() => {
+        console.log('我是次要信息', Function.prototype.before)
+    })
+    function old() {
+        console.log('我是old')
+    }
+    newSay(1, 2, 3, 4, 6)
+    console.log(old.before())
+</script>
+
+</html>

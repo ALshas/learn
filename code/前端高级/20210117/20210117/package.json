@@ -1,0 +1,20 @@
+{
+  "name": "20210117",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "qs": "^6.9.6",
+    "redux": "^4.0.5",
+    "underscore": "^1.12.0",
+    "zepto": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
