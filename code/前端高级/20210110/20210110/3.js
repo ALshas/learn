@@ -1,8 +1,8 @@
-let a=0,
-    b=0;
-function A(a){
-    A=function(b){
-        alert(a+b++);
+let a = 0,
+    b = 0;
+function A(a) {
+    A = function (b) {
+        alert(a + b++);
     };
     alert(a++);
 }

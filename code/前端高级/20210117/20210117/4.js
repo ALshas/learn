@@ -16,7 +16,7 @@ const add1 = x => x + 1;
 const mul3 = x => x * 3;
 const div2 = x => x / 2;
 
-/* function compose(...funcs) {
+function compose(...funcs) {
     let len = funcs.length;
     if (len === 0) return x => x;
     if (len === 1) return funcs[0];
@@ -30,7 +30,7 @@ const div2 = x => x / 2;
     };
 }
 let operate = compose(div2, mul3, add1, add1);
-console.log(operate(0)); */
+console.log(operate(0));
 
 /* function compose(...funcs) {
     // funcs -> [div2, mul3, add1, add1]

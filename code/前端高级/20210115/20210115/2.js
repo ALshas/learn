@@ -8,14 +8,14 @@
 var test = (function (i) {
     /!*
      * EC(AN) 「闭包」
-     *   作用域链:<EC(AN),EC(G)> 
+     *   作用域链:<EC(AN),EC(G)>
      *   形参赋值:i=2 -> 4
      *   变量提升:--
      *!/
     return function () {
-        /!* 
+        /!*
          * EC(TEST)
-         *   作用域链:<EC(TEST),EC(AN)> 
+         *   作用域链:<EC(TEST),EC(AN)>
          *   初始ARGUMENTS: {0:5,length:1} 实参集合
          *   形参赋值:--
          *   变量提升:--
@@ -39,7 +39,7 @@ var x = 4;
 function func() {
     /!*
      * EC(FUNC1) 「闭包」
-     *   作用域链:<EC(FUNC1),EC(G)> 
+     *   作用域链:<EC(FUNC1),EC(G)>
      *   形参赋值:--
      *   变量提升:--
      *   代码执行:
@@ -48,7 +48,7 @@ function func() {
     return function (y) {
         /!*
          * EC(F1)
-         *   作用域链:<EC(F1),EC(FUNC1)> 
+         *   作用域链:<EC(F1),EC(FUNC1)>
          *   形参赋值:y=6
          *   变量提升:--
          *   代码执行:
@@ -56,7 +56,7 @@ function func() {
          *!/
         /!*
          * EC(F2)
-         *   作用域链:<EC(F2),EC(FUNC1)> 
+         *   作用域链:<EC(F2),EC(FUNC1)>
          *   形参赋值:y=9
          *   变量提升:--
          *   代码执行:
@@ -68,7 +68,7 @@ function func() {
     //======第二次执行大函数
     /!*
      * EC(FUNC2)
-     *   作用域链:<EC(FUNC2),EC(G)> 
+     *   作用域链:<EC(FUNC2),EC(G)>
      *   形参赋值:--
      *   变量提升:--
      *   代码执行:
@@ -77,7 +77,7 @@ function func() {
     return function (y) {
         /!*
          * EC(AN)
-         *   作用域链:<EC(AN),EC(FUNC2)> 
+         *   作用域链:<EC(AN),EC(FUNC2)>
          *   形参赋值:y=8
          *   变量提升:--
          *   代码执行:
@@ -149,7 +149,7 @@ console.log(b); //->10 */
     return function proxy(...args) {
         // args是一个数组，数组中存储小函数传递的是实参信息
         //  + params:[1,2]
-        //  + args:[3] 
+        //  + args:[3]
         params = params.concat(args);
 
         // 数组求和1：命令式编程「关注的是过程，自己管控处理的步骤，自己在每一步中想干啥就干啥，优势：灵活，弊端：复杂冗余」
@@ -187,9 +187,9 @@ console.log(b); //->10 */
         }, 0);
     };
 }; */
-const fn = (...params) => (...args) => params.concat(args).reduce((total, item) => total + item, 0);
-let res = fn(1, 2)(3);
-console.log(res); //=>6  1+2+3
+// const fn = (...params) => (...args) => params.concat(args).reduce((total, item) => total + item, 0);
+// let res = fn(1, 2)(3);
+// console.log(res); //=>6  1+2+3
 
 
 // reduce也是要来迭代数组中的每一项的，只不过，他可以把上一次处理的结果，直接传递给下一次处理，实现每一次处理的累积
@@ -200,7 +200,7 @@ arr.reduce(function (total, item, index) {
     console.log(total, item, index);
     // 10 20 1
     // 30 30 2
-    // 60 40 3  
+    // 60 40 3
     // 最后整个reduce返回结果是100
     return total + item;  //return的是啥，就把其当做本次处理结果，传递给下一次迭代的total
 }); */

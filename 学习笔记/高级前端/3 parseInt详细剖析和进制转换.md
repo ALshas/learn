@@ -1,6 +1,6 @@
 ### 1、parseInt详细剖析和进制转换
 
-面试题1
+##### 面试题1
 
 ```javascript
 let result = 100 + true + 21.1 + null + undedined + 'Tencent' + [] + null + 9 + false
@@ -30,7 +30,7 @@ console.log(result);
 1.   Object.is([val], [val])
 2. 。。。。。
 
-面试题2
+##### 面试题2
 
 ```javascript
 //题： 如果a是一个对象 我们就可以利用‘对象=》数字’的规则去做一些处理
@@ -95,7 +95,7 @@ if(a == 1 && a == 2 && a == 3){
 // 0123 如果一个数字以零开始，浏览器会默认认为其是八进制，但是浏览器也会直接把八进制转换为10进制
 ```
 
-题 3
+##### 题 3
 
 ```javascript
 let arr = [27.2, 0, '0013', '14px', 123];

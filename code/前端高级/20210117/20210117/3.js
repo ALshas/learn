@@ -15,52 +15,53 @@ let total = fn(1, 2)(3);
 console.log(total); //=>6 */
 
 //=========
-/* const curring = () => {
-    let arr = [];
-    const add = (...params) => {
-        arr = arr.concat(params);
-        return add;
-    };
-    add.toString = () => {
-        return arr.reduce((total, item) => {
-            return total + item;
-        });
-    };
-    return add;
-};
-let add = curring();
-let res = add(1)(2)(3);
-console.log(res); //->6
+// const curring = () => {
+//     let arr = [];
+//     const add = (...params) => {
+//         arr = arr.concat(params);
+//         return add;
+//     };
+//     add.toString = () => {
+//         console.log(arr)
+//         return arr.reduce((total, item) => {
+//             return total + item;
+//         });
+//     };
+//     return add;
+// };
+// let add = curring();
+// let res = add(1)(2)(3);
+// console.log(res); //->6
 
-add = curring();
-res = add(1, 2, 3)(4);
-console.log(res); //->10
+// add = curring();
+// res = add(1, 2, 3)(4);
+// console.log(res); //->10
 
-add = curring();
-res = add(1)(2)(3)(4)(5);
-console.log(res); //->15 */
+// add = curring();
+// res = add(1)(2)(3)(4)(5);
+// console.log(res); //->15 
 
-/* const curring = n => {
-    let arr = [],
-        index = 0;
-    const add = (...params) => {
-        index++;
-        arr = arr.concat(params);
-        if (index >= n) {
-            return arr.reduce((total, item) => {
-                return total + item;
-            });
-        }
-        return add;
-    };
-    return add;
-};
-let add = curring(5);
-res = add(1)(2)(3)(4)(5);
-console.log(res); //->15 */
+//  const curring = n => {
+//     let arr = [],
+//         index = 0;
+//     const add = (...params) => {
+//         index++;
+//         arr = arr.concat(params);
+//         if (index >= n) {
+//             return arr.reduce((total, item) => {
+//                 return total + item;
+//             });
+//         }
+//         return add;
+//     };
+//     return add;
+// };
+// let add = curring(5);
+// res = add(1)(2)(3)(4)(5);
+// console.log(res); //->15 
 
 
-/* 
+
 function fn() {
     // ...
     let total = 10;
@@ -69,7 +70,12 @@ function fn() {
 // toString/valueOf
 fn[Symbol.toPrimitive] = function () {
     return 10;
-}; 
-// alert(fn); //会把fn变为String然后再输出
-// console.log(fn); //基于console.log也会把fn转换为String处理，只不过和alert输出的结果看起来不一样而已
-*/
+};
+alert(fn); //会把fn变为String然后再输出
+console.log(fn); //基于console.log也会把fn转换为String处理，只不过和alert输出的结果看起来不一样而已
+
+function haha() { }
+haha.toString = function () {
+    return 1000
+}
+console.log(haha)

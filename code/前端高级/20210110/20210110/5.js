@@ -1,5 +1,5 @@
 /*
- * let / const  
+ * let / const
  *   + let 声明的变量
  *   + const 声明的也是变量「只不过不允许重定向变量的指针，不能重新赋值」
  */
@@ -22,14 +22,14 @@ console.log(obj); //->{name:'周老师'} */
 
 //==================
 
-/* 
- * var VS let 
+/*
+ * var VS let
  *  1.let不存在变量提升
  *  2.let不允许重复声明(在当前上下文中，不论基于什么方式声明了这个变量，再次基于let/const声明都会报重复声明)
  *  3.全局上下文中，基于var声明的变量不是存放到VO(G)中的，而是直接放在了GO(window)中；基于let声明的变量是存放到VO(G)中的；
  *  4.暂时性死区问题
  *  5.块级作用域
- * 
+ *
  * JS代码执行
  *   + 词法解析（AST）：我们基于HTTP从服务器拉取回来的JS代码其实是一些字符串，浏览器首先会按照 ECMAScript 规则，把字符串变为C++可以识别和解析的一套树结构对象
  *   + 全局上下文
@@ -40,12 +40,12 @@ console.log(obj); //->{name:'周老师'} */
 //---------------
 // 没有ES6(let)之前，作用域只有两种：全局上下文、函数执行的私有上下文；但是有了let之后，产生了第三种：块级作用域「如果在{}（排除函数和对象的大括号）中出现let/const/function，则当前的{}会成为一个块级私有的上下文」
 /*
- * EC(G) 
+ * EC(G)
  *   GO -> x:10
  *   VO(G) -> y=20
  *   变量提升: var x;
  */
-/* 
+/*
 var x = 10;
 let y = 20;
 if (1 === 1) {
@@ -63,41 +63,41 @@ if (1 === 1) {
     let y = 200; //是属于EC(BLOCK)私有的
     console.log(x, y); //->100 200
 }
-console.log(x, y); //->100 20 
+console.log(x, y); //->100 20
 */
 
 
-/* 
+/*
 // 只有一个全局的上下文  i都是全局变量
 for (var i = 0; i < 5; i++) {
     // ...
 }
-console.log(i); //->5 
+console.log(i); //->5
 */
 
-/* 
+/*
 // 全局上下文
 for (let i = 0; i < 5; i++) {
     // 私有的块级上下文
     // ...
     i++;
 }
-console.log(i); //Uncaught ReferenceError: i is not defined 
+console.log(i); //Uncaught ReferenceError: i is not defined
 */
 
-/* 
+/*
 // ES6中的正常循环，想要性能更优
 let arr = [10, 20, 30];
 let i = 0,
     len = arr.length;
 for (; i < len; i++) {
 
-} 
+}
 */
 
 // 循环绑定事件
 
-/* 
+/*
 // 这样是实现不了的,最后点击输出的结果都是5
 var buttons = document.querySelectorAll('button');
 for (var i = 0; i < buttons.length; i++) {
@@ -107,7 +107,7 @@ for (var i = 0; i < buttons.length; i++) {
     };
 }
 // 循环干的事情：循环五次，分别给五个按钮的点击行为绑定五个方法；循环结束，此时全局的i=5；
-// 点击的时候，执行绑定的函数「私有上下文」，在上下文中遇到变量i，但是i不是自己私有的，找全局的，也就是5... 
+// 点击的时候，执行绑定的函数「私有上下文」，在上下文中遇到变量i，但是i不是自己私有的，找全局的，也就是5...
 */
 
 // 解决方案1：闭包的机制
@@ -133,7 +133,7 @@ for (var i = 0; i < buttons.length; i++) {
     })(i);
 } */
 
-/* 
+/*
 // let方案也是闭包处理，只不过是浏览器自己的处理机制，比我们自己写的闭包性能好一些
 let buttons = document.querySelectorAll('button');
 for (let i = 0; i < buttons.length; i++) {
@@ -154,7 +154,7 @@ for (; i < len; i++) {
     };
 } */
 
-/* 
+/*
 // 解决档案3：事件委托  性能提高 40%~60%
 document.body.onclick = function (ev) {
     let target = ev.target;
@@ -182,7 +182,7 @@ let x = 10; */
 //---------------
 /* debugger; //设置断点调试
 var x = 10; //=>window.x=10
-console.log(x); //->10  
+console.log(x); //->10
 // 全局上下文查找一个变量：
 //   1.先找VO(G)中是否存在，如果存在就用这个全局变量
 //   2.如果VO(G)中没有，则再次尝试去GO(window)中找「因为JS中的某些操作是可以省略window」，如果有就是获取某个属性的值
@@ -190,7 +190,7 @@ console.log(x); //->10
 console.log(window.x); //->10
 // y = 10; //本身就是window.y=10 */
 
-/* 
+/*
 debugger;
 let x = 10;
 console.log(x); //->10
@@ -205,14 +205,14 @@ var x = 20;
 console.log(x);
 let y = 10;
 let y = 20;
-console.log(y); 
+console.log(y);
 */
 
 //---------------
-/* 
+/*
 console.log(x); //->undefined
 var x = 10;
 
 console.log(y); //->Uncaught ReferenceError: Cannot access 'y' before initialization
-let y = 20; 
+let y = 20;
 */

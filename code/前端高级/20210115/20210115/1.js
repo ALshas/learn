@@ -16,10 +16,10 @@ fn(5);
 obj.fn(10);
 console.log(num, obj.num); */
 
-/* 
+/*
 /!*
  * EC(G)
- *   变量提升:-- 
+ *   变量提升:--
  * ----VO(G)
  *   obj = 0x000
  *   fn = 0x001
@@ -27,7 +27,7 @@ console.log(num, obj.num); */
 let obj = {
     // fn:0x001
     fn: (function () {
-        /!* 
+        /!*
          * EC(AN)
          *   作用域链:<EC(AN),EC(G)>
          *   初始THIS:window
@@ -39,9 +39,9 @@ let obj = {
         }; //return 0x001; [[scope]]:EC(AN)
     })()
 };
-obj.fn(); //this->obj 
+obj.fn(); //this->obj
 let fn = obj.fn;
-fn(); //this->window 
+fn(); //this->window
 */
 
 /* var fullName = 'language'; //window.fullName='language'

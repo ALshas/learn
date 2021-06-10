@@ -1,29 +1,29 @@
-/* 
-/!*
+
+/*
  * EC(G)  「老版本的浏览器」
  *  变量提升:
- *    foo=0x000; [[scope]]:EC(G) 
- *!/
-{
-    function foo() {}
-    foo = 1; //全局的foo=1
-}
-console.log(foo); //->1 
-*/
+ *    foo=0x000; [[scope]]:EC(G)
+ */
+// {
+//     function foo() { }
+//     foo = 1; //全局的foo=1
+// }
+// console.log(foo); //->1 
 
-/* console.log(foo); //->undefined
-{
-    console.log(foo); //->函数
-    function foo() {}
-    foo = 1;
-    console.log(foo); //->1
-}
-console.log(foo); //->函数 */
 
-/* 
+//  console.log(foo); //->undefined
+// {
+//     console.log(foo); //->函数
+//     function foo() {}
+//     foo = 1;
+//     console.log(foo); //->1
+// }
+// console.log(foo); //->函数 
+
+/*
 /!*
  * EC(G)
- *   变量提升: 
+ *   变量提升:
  *     function foo;
  *     function foo;
  *!/
@@ -31,7 +31,7 @@ console.log(foo); //->undefined
 {
     /!*
      * EC(BLOCK)
-     *   作用域链:<EC(BLOCK),EC(G)> 
+     *   作用域链:<EC(BLOCK),EC(G)>
      *   变量提升:
      *      foo=0x001; [[scope]]:EC(BLOCK)
      *      foo=0x002; [[scope]]:EC(BLOCK)
