@@ -20,7 +20,7 @@ iterator是一种机制（接口）: 为各种不同的数据结构提供统一�
 
 ### 手写iterator
 
-```
+```js
 class Iterator{
   constructor(assemblee){
      let self = this;
@@ -30,7 +30,7 @@ class Iterator{
   next(){
     let self = this,
     assemble = self.assemble
-            if (self.index > assemble.length - 1) {
+     if (self.index > assemble.length - 1) {
             return {
                 done: true,
                 value: undefined
@@ -42,5 +42,11 @@ class Iterator{
         };
   }
 }
+let itor = new Iterator([10, 20, 30, 40]);
+console.log(itor.next()); //->{value:10,done:false}
+console.log(itor.next()); //->{value:20,done:false}
+console.log(itor.next()); //->{value:30,done:false}
+console.log(itor.next()); //->{value:40,done:false}
+console.log(itor.next()); //->{value:undefined,done:true}
 ```
 

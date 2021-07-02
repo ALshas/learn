@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 清除默认样式 */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box1 {
+        width: 200px;
+        height: 192px;
+        overflow: hidden;
+        position: relative;
+        left: 100px;
+        cursor: move;
+    }
+
+    .box1 span {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: yellow;
+        display: inline-block;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+
+    .box2 {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        overflow: hidden;
+        left: 400px;
+        display: none;
+        top: 0px;
+    }
+
+    .box2 .big_imgs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 400px;
+    }
+</style>
+
+<body>
+    <div class='box1'>
+        <img src="small.png" />
+        <span class="syFying"></span>
+    </div>
+    <div class="box2">
+        <img class="big_imgs" src="big.png" />
+    </div>
+</body>
+
+<script>
+    var box1 = document.querySelector('.box1')
+    var flyClass = document.querySelector('.syFying')
+    var big = document.querySelector('.box2')
+
+    box1.addEventListener('mouseover', function () {
+        flyClass.style.display = 'block';
+        big.style.display = 'block'
+    })
+
+    box1.addEventListener('mouseout', function () {
+        flyClass.style.display = 'none';
+        big.style.display = 'none'
+    })
+
+    box1.addEventListener('mousemove', function (ev) {
+        var x = ev.offsetX   //鼠标到父盒子的距离
+        var y = ev.offsetY
+
+        var max_x = box1.offsetWidth - flyClass.offsetWidth
+        var max_y = box1.offsetHeight - flyClass.offsetHeight
+
+        var X = x - flyClass.offsetWidth / 2
+        var Y = y - flyClass.offsetHeight / 2
+
+        if (X <= 0) {
+            X = 0;
+        } else if (X >= max_x) {
+            X = max_x
+        }
+        if (Y <= 0) {
+            Y = 0
+        } else if (Y >= max_y) {
+            Y = max_y
+        }
+
+        flyClass.style.left = X + 'px'
+        flyClass.style.top = Y + 'px'
+
+        var bigImg = document.querySelector('.big_imgs')
+        var bigImg_x = bigImg.offsetWidth - big.offsetWidth;
+        var bigImg_y = bigImg.offsetHeight - big.offsetHeight;
+        var bigX = X * bigImg_x / max_x;
+        var bigY = Y * bigImg_y / max_x;
+        bigImg.style.left = -bigX + 'px';
+        bigImg.style.top = -bigY + 'px';
+    })
+</script>
+
+</html>

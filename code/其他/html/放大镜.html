@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 左边小盒子样式 */
+        .box1 {
+            position: relative;
+            width: 450px;
+            height: 450px;
+            border: 1px solid #999;
+            margin-left: 80px;
+            margin-top: 50px;
+        }
+
+        .box1 .img1 {
+            /* 设置左边图片大小 */
+            width: 450px;
+        }
+
+        /* 遮罩层bg的样式 */
+        .box1_bg {
+            /* 一开始要隐藏起来 */
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            /* 透明效果 */
+            opacity: .5;
+            cursor: move;
+        }
+
+
+        /* 右边大盒子样式 */
+        .big_img {
+            /* 一开始要隐藏起来 */
+            display: none;
+            width: 540px;
+            height: 540px;
+            position: absolute;
+            top: 0;
+            left: 470px;
+            border: 1px solid #999;
+            overflow: hidden;
+        }
+
+        /* 大盒子里面的图片样式 */
+        .big_img .big_imgs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <img class="img1" src="small.png" alt="#">
+        <div class="box1_bg"></div>
+        <div class="big_img">
+            <img class="big_imgs" src="big.png" alt="#">
+        </div>
+    </div>
+    <!-- JS代码如下 -->
+    <script>
+        // ①整个案例可以分为三个功能模块
+        // ②鼠标经过小图片盒子,黄色的遮挡层和大图片盒子显示,离开-->隐藏2个盒子功能
+        // ③黄色的遮挡层 跟随 鼠标功能。
+        // ④移动黄色遮挡层,大图片跟随移动功能。
+        // 事件源：
+        var box1 = document.querySelector('.box1');
+        var bg = document.querySelector('.box1_bg');
+        var big = document.querySelector('.big_img');
+        // 1. 鼠标 经过 盒子的时候，显示 遮罩层 和 放大镜
+        box1.addEventListener('mouseover', function () {
+            bg.style.display = 'block';
+            big.style.display = 'block';
+        })
+        // 2. 鼠标 离开 盒子的时候，隐藏 遮罩层 和 放大镜
+        box1.addEventListener('mouseout', function () {
+            bg.style.display = 'none';
+            big.style.display = 'none';
+        })
+
+        // 2.鼠标移动的时候
+        box1.addEventListener('mousemove', function (e) {
+            var x = e.pageX - this.offsetLeft; // x是鼠标到父盒子x距离
+            var y = e.pageY - this.offsetTop; // y是鼠标到父盒子y距离
+            // console.log(x ,y)
+            // 最大移动距离，box1盒子的大小 减去 遮罩层的盒子大小  
+            var max_x = box1.offsetWidth - bg.offsetWidth;
+            var max_y = box1.offsetHeight - bg.offsetHeight;
+            // if (max_x >= 0)
+            // *将坐标减去 遮罩层盒子的一半 鼠标就落到遮罩层的中间
+            // 移动距离X,Y
+            var X = x - bg.offsetWidth / 2;
+            var Y = y - bg.offsetHeight / 2;
+            // *当遮罩层超出 box1 的边框的时候，设一个边界卡住它
+            if (X <= 0) {
+                X = 0
+            } else if (X >= max_x) {
+                X = max_x;
+            }
+            if (Y <= 0) {
+                Y = 0
+            } else if (Y >= max_y) {
+                Y = max_y;
+            }
+            // *把鼠标在盒子内的坐标给 遮罩层 实现跟随鼠标移动效果
+            // 注意加上 px 不然不起效果
+            bg.style.left = X + 'px';
+            bg.style.top = Y + 'px';
+
+            // 右边图片跟随移动，有一个小算法：big_img_x
+            // 遮挡层移动距离（X）/遮挡层最大移动距离（max_x）=大图片移动距离（bigX)/大图片移动的最大距离（big_img_x)
+
+            // 获取 图片 事件源
+            var big_img = document.querySelector('.big_imgs');
+            // big_img_x 求大图片移动的最大距离 正方形 距离一样的
+            var big_img_x = big_img.offsetWidth - big.offsetWidth;
+            var big_img_y = big_img.offsetWidth - big.offsetWidth;
+            // bigX 大图片的移动距离
+            var bigX = X * big_img_x / max_x;
+            var bigY = Y * big_img_y / max_x;
+            big_img.style.left = -bigX + 'px';
+            big_img.style.top = -bigY + 'px';
+        })
+    </script>
+</body>
+
+</html>
