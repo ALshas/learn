@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            height: auto;
+            width: 300px;
+            margin: auto;
+        }
+
+        .img-list li {
+            width: 300px;
+            height: auto;
+        }
+
+        .img-list li img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-list">
+        <ul>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0423/43a7fbe301d6d3a4c1daadd46bda8996.jpg"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0423/d4c853a6b08d285c809c0f22af04f4d5.jpg"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file03.16sucai.com/2017/1100/16sucai_P591F3A175.JPG"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0423/18a5cf4ab618e6736806db42a7a6197b.jpg"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0423/7dcfc1aede6cd99b583f4149e3ad73ac.jpg"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0315/fa9f74d6296cd7a1ad9b79e480556c3f.jpg"></li>
+            <li><img src="https://placehold.it/300&text=Loading..."
+                    data-src="https://file06.16sucai.com/2018/0315/8fc2da2c3f645e4afe992ac5c401f4f1.jpg"></li>
+        </ul>
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        var eles = document.querySelectorAll('.img-list li img'); // 获取所有列表元素
+
+        // 监听回调
+        var callback = (entries) => {
+            debugger
+            entries.forEach(item => {
+                // 出现到可视区
+                if (item.intersectionRatio > 0) {
+                    var ele = item.target;
+                    var imgSrc = ele.getAttribute('data-src');
+                    if (imgSrc) {
+                        // 预加载
+                        var img = new Image();
+                        img.addEventListener('load', function () {
+                            ele.src = imgSrc;
+                        }, false);
+                        ele.src = imgSrc;
+                        // 加载过清空路径，避免重复加载
+                        ele.removeAttribute('data-src');
+                    }
+                }
+            })
+        }
+        var observer = new IntersectionObserver(callback);
+
+        // 列表元素加入监听
+        eles.forEach(item => {
+            observer.observe(item);
+        })
+    }
+</script>
+
+</html>

@@ -21,7 +21,7 @@ document.body.onclick = function proxy(ev){
 ### 原理
 
 ```js
-~ function () {
+   function () {
     const createRandom = () => {
         let ran = Math.random() * new Date();
         return ran.toString(16).replace('.', '');
