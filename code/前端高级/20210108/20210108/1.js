@@ -1,8 +1,8 @@
-/* let result = 100 + true + 21.2 + null + undefined + "Tencent" + [] + null + 9 + false;
-  100 + 1 + 21.2 + 0 + NaN + 'Tencent + [](空数组转字符串就是空字符串) + null + 9 + false
+let result = 100 + true + 21.2 + null + undefined + "Tencent" + [] + null + 9 + false;
+//   100 + 1 + 21.2 + 0 + NaN + 'Tencent + [](空数组转字符串就是空字符串) + null + 9 + false
 // NaN + "Tencent" -> "NaNTencentnull9false"
-console.log(result); */
-
+console.log(result); 
+console.log(123 + NaN)
 
 /*
  * JS中验证两个值是否相等
