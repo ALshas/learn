@@ -1,3 +1,87 @@
+### 1、异步方式
+同步代码：按顺序逐行执行，具有阻塞性，简单直观。
+异步代码：允许在等待操作完成的同时继续执行其他代码，非阻塞性，但理解和管理较复杂。
+异步编程方式：包括回调函数、Promise 和 async/await，逐步简化和优化了异步代码的写法和可读性。
+事件循环：JavaScript 通过事件循环处理异步操作，确保主线程不会被阻塞。
+
+### 2、promise介绍
+Promise本意是承诺，在程序中的意思就是承诺我过一段时间后会给你一个结果。 什么时候会用到过一段时间？答案是异步操作，异步是指可能比较长时间才有结果的才做，例如网络请求、读取本地文件等
+
+1. Pending Promise对象实例创建时候的初始状态
+2. Fulfilled 可以理解为成功的状态
+3. Rejected 可以理解为失败的状态
+then 方法就是用来指定Promise 对象的状态改变时确定执行的操作，resolve 时执行第一个函数（onFulfilled），reject 时执行第二个函数（onRejected）
+
+### 3、使用
+```js
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if(Math.random()>0.5)
+            resolve('This is resolve!');
+        else
+            reject('This is reject!');
+    }, 1000);
+});
+promise.then(Fulfilled,Rejected)
+```
+- 构造一个Promise实例需要给Promise构造函数传入一个函数。
+- 传入的函数需要有两个形参，两个形参都是function类型的参数。
+  - 第一个形参运行后会让Promise实例处于resolve状态，所以我们一般给第一个形参命名为resolve,使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作
+  - 第一个形参运行后会让Promise实例处于reject状态，所以我们一般给第一个形参命名为reject,将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作
+
+### 4、实现
+4.1 es5模拟Promise
+```js
+function Promise(fn) {
+    fn((data)=> {
+        this.success(data);
+    }, (error)=> {
+        this.error();
+    });
+}
+
+Promise.prototype.resolve = function (data) {
+    this.success(data);
+}
+
+Promise.prototype.reject = function (error) {
+    this.error(error);
+}
+
+Promise.prototype.then = function (success, error) {
+    this.success = success;
+    this.error = error;
+}
+```
+
+4.2 es6模拟Promise 
+```js
+class Promise {
+    constructor(fn) {
+        fn((data)=> {
+            this.success(data);
+        }, (error)=> {
+            this.error();
+        });
+    }
+
+    resolve(data) {
+        this.success(data);
+    }
+
+    reject(error) {
+        this.error(error);
+    }
+
+    then(success, error) {
+        this.success = success;
+        this.error = error;
+        console.log(this);
+    }
+}
+```
+
+
 ```js
 (function () {
     "use strict";
